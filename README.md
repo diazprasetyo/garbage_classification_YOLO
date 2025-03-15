@@ -32,6 +32,7 @@ Since the model (`best.pt`) is included in the repository, no additional downloa
 ## 📊 Training the YOLO Model
 
 1️⃣ **Prepare Dataset** (Ensure images and labels are in `datasets/`)
+
 2️⃣ **Run YOLO Training**
 ```bash
 yolo task=detect mode=train model=yolov8m.pt data=config.yaml epochs=100 imgsz=640
