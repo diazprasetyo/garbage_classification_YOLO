@@ -1,8 +1,14 @@
+import os
+
+# 🧯 Fix for libGL.so.1 missing (OpenCV GUI dependency)
+import cv2
+cv2.imshow = lambda *args, **kwargs: None
+cv2.waitKey = lambda *args, **kwargs: None
+cv2.destroyAllWindows = lambda *args, **kwargs: None
 import streamlit as st
 from PIL import Image
 import numpy as np
 import plotly.graph_objects as go
-import os
 import tempfile
 import shutil
 import time
