@@ -11,7 +11,9 @@ import time
 try:
     from ultralytics import YOLO
     YOLO_AVAILABLE = True
-except ImportError:
+except Exception as e:
+    st.error("Ultralytics could not be loaded.")
+    st.code(str(e))
     YOLO_AVAILABLE = False
 
 # Page Configuration (Only once, at the top)
