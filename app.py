@@ -1,11 +1,15 @@
 import os
-
-# 🧯 Fix for libGL.so.1 missing (OpenCV GUI dependency)
-import cv2
-cv2.imshow = lambda *args, **kwargs: None
-cv2.waitKey = lambda *args, **kwargs: None
-cv2.destroyAllWindows = lambda *args, **kwargs: None
 import streamlit as st
+
+# Handle cv2 fix only if available
+try:
+    import cv2
+    cv2.imshow = lambda *args, **kwargs: None
+    cv2.waitKey = lambda *args, **kwargs: None
+    cv2.destroyAllWindows = lambda *args, **kwargs: None
+except ImportError:
+    st.warning("OpenCV not available, skipping GUI patch.")
+
 from PIL import Image
 import numpy as np
 import plotly.graph_objects as go
